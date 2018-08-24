@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" type=text/css href="{{ url_for('static', filename='css/stylesheet.css') }} ">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+    
+    <title>Budget</title>
+  </head>
+  <body>
+    <div class="container-fluid" >
+
+      <div class="row">
+         <div class="col-sm-4 offset-sm-4">
+             <div  id="first_element">
+                 <span class=" badge badge-primary col-md-11  p-type"><h1>Nom</h1></span> 
+             </div>
+         </div>
+      </div>
+      <!-- debut du formulaire -->
+      <form action="{{ url_for('budget')}}" method = 'post'>
+        <!-- rangee prenant en compte l'ensemble des elements de l'application -->
+        <div class="row">
+
+            <!-- Info a la gauche de la carte centrale:salaire et economies  -->
+            
+            <div class="col-sm-3 ">
+              <div class="row d-flex justify-content-center">
+                
+                  <h2>Salaire:<span class="badge badge-warning">100</span></h2> 
+              </div>
+            
+            
+              <div class="row d-flex justify-content-center">
+                
+                    <h2>Economies:<span class="badge badge-warning">{{economies}}</span></h2> 
+                
+              </div>
+
+            </div>
+            
+            
+    <!-- Carte centrales des depenses -->
+            <div class="card col-sm-6 ">
+            
+              <div class="card-body">
+                
+                <div class="row d-flex justify-content-center">
+                  <h3 class="card-text metric-text ">Nourriture:<span class="badge badge-warning"><input type="text" class="form-control" id="formGroupExampleInput" placeholder="10" name="Nourriture"></span></h3>
+                </div>
+                
+                <div class="row d-flex justify-content-center">
+                  <h3 class="card-text metric-text">Loyer:<span class="badge badge-warning">9</span></h3>
+                </div>
+                
+                <div class="row d-flex justify-content-center">
+                  <h3 class="card-text metric-text">Internet et tele:<span class="badge badge-warning">4</span></h3>
+                </div>
+                
+                <div class="row d-flex justify-content-center">
+                  <h3 class="card-text metric-text">Electricite:<span class="badge badge-warning">3</span></h3>
+                </div>
+
+                <div class="row d-flex justify-content-center">
+                  <h3 class="card-text metric-text">Cinema:<span class="badge badge-warning">3</span></h3>
+                </div>
+
+                <div class="row d-flex justify-content-center">
+                  <h3 class="card-text metric-text">Jeux videos:<span class="badge badge-warning">3</span></h3>
+                </div>
+
+                <div class="row d-flex justify-content-center">
+                  <h3 class="card-text metric-text">Restaurant:<span class="badge badge-warning">3</span></h3>
+                </div>
+
+                <div class="row d-flex justify-content-center">
+                  <h3 class="card-text metric-text">Grand prix F1:<span class="badge badge-warning">3</span></h3>
+                </div>
+
+                <div class="row d-flex justify-content-center">
+                  <h3 class="card-text metric-text">Total:<span class="badge badge-warning">75</span></h3>
+                </div>
+              
+              </div>
+            </div>
+
+    <!-- Info a la droite de la carte centrale: Periode et happyness --> 
+            <div class="col-sm-3">
+              <div class="row d-flex justify-content-center">
+                
+                  <h2>Mois:<span class="badge badge-warning">{{mois}}</span></h2> 
+              </div>
+            
+            
+              <div class="row d-flex justify-content-center">
+                
+                    <h2>Bonheur:<span class="badge badge-warning">{{happy}}%</span></h2> 
+                
+              </div>
+
+            </div>
+          </div>
+        </form>
+
+         
+
+        
+      
+
+    </div>
+
+
+
+
+    
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
+  </body>
+</html>
