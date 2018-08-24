@@ -3,8 +3,8 @@
 def happyness(nourriture,loyer,internet,electricite,cinema,jeu_video,restaurant,f1,economies=0,happy=100,mois=1):
     revenu=100
     mois=+mois
-    depense_nec = nourriture + loyer + internet + electricite
-    depense_fun= cinema + jeu_video + restaurant + f1
+    depense_nec = float(nourriture + loyer + internet + electricite)
+    depense_fun= float(cinema + jeu_video + restaurant + f1)
     total= depense_fun + depense_nec
     r_dep_fun=(0.25*revenu-depense_fun)+20
     r_dep_nec=abs(0.75*revenu-depense_nec)
