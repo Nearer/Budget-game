@@ -15,14 +15,14 @@ def budget():
      if request.method == 'POST':
 
         # Inputs from a submission 
-        nourriture = request.form['Nourriture']
-        loyer = request.form['Loyer']
-        internet = request.form['Internet']
-        electricite = request.form['Electricite']
-        cinema = request.form['Cinema']
-        jeux_videos = request.form['Jeux_videos']
-        restaurant = request.form['Restaurant']
-        f1 = request.form['F1']
+        nourriture = int(request.form['Nourriture'])
+        loyer = int(request.form['Loyer'])
+        internet = int(request.form['Internet'])
+        electricite = int(request.form['Electricite'])
+        cinema = int(request.form['Cinema'])
+        jeux_videos = int(request.form['Jeux_videos'])
+        restaurant = int(request.form['Restaurant'])
+        f1 = int(request.form['F1'])
      
      
      
@@ -42,7 +42,7 @@ def budget():
          mois_defaut=mois
      if 'happy' in locals():
          happy_defaut=happy
-     if 'happy' in locals():
+     if 'economies' in locals():
          economies_defaut=economies
 
 
