@@ -1,6 +1,9 @@
 from pprint import pprint
 # fonction utilisant comme input combien il assigne a chaque depenses
 def happyness(nourriture,loyer,internet,electricite,cinema,jeu_video,restaurant,f1,economies=0,happy=100,mois=1):
+    
+    prix=[10,30,5,5,4,2,9,15]
+    
     revenu=100
     mois=+1
     depense_nec = nourriture + loyer + internet + electricite
