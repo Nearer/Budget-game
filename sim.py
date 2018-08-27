@@ -4,14 +4,14 @@ def happyness(nourriture,loyer,internet,electricite,cinema,jeu_video,restaurant,
     
     prix=(10,30,5,5,4,2,9,15)
 
-    nourriture= nourriture*prix[0]
-    loyer=loyer*prix[1]
-    internet=internet*prix[2]
-    electricite=electricite*prix[3]
-    cinema=cinema*prix[4]
-    jeu_video=jeu_video*prix[5]
-    restaurant=restaurant*prix[6]
-    f1=f1*prix[7]
+    nourriture*=prix[0]
+    loyer*=prix[1]
+    internet*=prix[2]
+    electricite*=prix[3]
+    cinema*=prix[4]
+    jeu_video*=prix[5]
+    restaurant*=prix[6]
+    f1*=prix[7]
 
 
 
