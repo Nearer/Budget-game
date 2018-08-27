@@ -30,13 +30,13 @@ def budget():
         
 
         # call the simulation function 
-        economies,happy,mois = sim.happyness(nourriture,loyer,internet,electricite,cinema,jeux_videos,restaurant,f1)
+        economies,happy,mois,dette = sim.happyness(nourriture,loyer,internet,electricite,cinema,jeux_videos,restaurant,f1)
 
     # Initial values
      mois_defaut=1
      happy_defaut=100
      economies_defaut=0
-    
+     dette_defaut=0
 
      if  'mois' in locals():
          mois_defaut=mois
@@ -44,14 +44,15 @@ def budget():
          happy_defaut=happy
      if 'economies' in locals():
          economies_defaut=economies
+     if 'dette'in locals():
+         dette_defaut=dette
 
 
 
 
 
 
-
-     return render_template('index.html',economies=economies_defaut,mois=mois_defaut,happy=happy_defaut)
+     return render_template('index.html',economies=economies_defaut,mois=mois_defaut,happy=happy_defaut,dette=dette_defaut)
 
 
 

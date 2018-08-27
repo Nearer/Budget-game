@@ -25,14 +25,18 @@ def happyness(nourriture,loyer,internet,electricite,cinema,jeu_video,restaurant,
    
     
     total= depense_fun + depense_nec
-    r_dep_fun=25 - depense_fun +20
+    r_dep_fun= 25 - depense_fun + 20
     r_dep_nec=abs(75- int(depense_nec))
     
-    happy=happy-r_dep_nec-r_dep_fun
+    happy= happy - r_dep_nec - r_dep_fun
     economies= int(economies) + int(revenu) - int(total)
-    
-    print("nourriture=",nourriture,"revenu=",revenu,"total=", total,"depenses_fun=",depense_fun,"depense_nec=", depense_nec , "economies=", economies,"happy=",happy,"mois=",mois)
-    return economies,happy,mois
+    dette=0
+    if economies < 0:
+         dette=abs(economies)
+         economies=0
+
+    # print("nourriture=",nourriture,"revenu=",revenu,"total=", total,"depenses_fun=",depense_fun,"depense_nec=", depense_nec , "economies=", economies,"happy=",happy,"mois=",mois)
+    return economies,happy,mois,dette
 
 if __name__ == "__main__":
     # execute only if run as a script
