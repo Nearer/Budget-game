@@ -2,7 +2,19 @@ from pprint import pprint
 # fonction utilisant comme input combien il assigne a chaque depenses
 def happyness(nourriture,loyer,internet,electricite,cinema,jeu_video,restaurant,f1,economies=0,happy=100,mois=1):
     
-    prix=[10,30,5,5,4,2,9,15]
+    prix=(10,30,5,5,4,2,9,15)
+
+    nourriture= nourriture*prix[0]
+    loyer=loyer*prix[1]
+    internet=internet*prix[2]
+    electricite=electricite*prix[3]
+    cinema=cinema*prix[4]
+    jeu_video=jeu_video*prix[5]
+    restaurant=restaurant*prix[6]
+    f1=f1*prix[7]
+
+
+
     
     revenu=100
     mois=+1
@@ -19,12 +31,10 @@ def happyness(nourriture,loyer,internet,electricite,cinema,jeu_video,restaurant,
     happy=happy-r_dep_nec-r_dep_fun
     economies= int(economies) + int(revenu) - int(total)
     
-    # print("nourriture=",nourriture,"revenu=",revenu,"total=", total,"depenses_fun=",depense_fun,"depense_nec=", depense_nec , "economies=", economies,"happy=",happy,"mois=",mois)
+    print("nourriture=",nourriture,"revenu=",revenu,"total=", total,"depenses_fun=",depense_fun,"depense_nec=", depense_nec , "economies=", economies,"happy=",happy,"mois=",mois)
     return economies,happy,mois
 
 if __name__ == "__main__":
     # execute only if run as a script
-    happyness()
-
-# happyness(10,30,5,5,4,2,9,15)
+    happyness(1,1,0,1,2,2,1,1)
 
