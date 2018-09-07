@@ -30,7 +30,7 @@ def budget():
         
 
         # call the simulation function 
-        economies,happy,mois,dette = sim.happyness(nourriture,loyer,internet,electricite,cinema,jeux_videos,restaurant,f1)
+        economies,happy,dette = sim.happyness(nourriture,loyer,internet,electricite,cinema,jeux_videos,restaurant,f1)
 
     # Initial values
      mois_defaut=1

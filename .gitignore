@@ -1,3 +1,4 @@
 #don't track this folder
 .vscode/
 __pycache__/sim.cpython-36.pyc
+THINGS.PY

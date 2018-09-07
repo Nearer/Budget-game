@@ -30,19 +30,19 @@
             <div class="col-sm-3 ">
               <div class="row d-flex justify-content-center">
                 
-                  <h2>Salaire:<span class="badge badge-warning">100</span></h2> 
+                  <h2 class='text-left'>Salaire:<span class="badge badge-warning">100</span></h2> 
               </div>
             
             
               <div class="row d-flex justify-content-center">
                 
-                    <h2>Economies:<span class="badge badge-warning">{{economies}}</span></h2> 
+                    <h2 class='text-left'>Economies:<span class="badge badge-warning">{{economies}}</span></h2> 
                 
               </div>
 
               <div class="row d-flex justify-content-center">
                 
-                <h2>Dette:<span class="badge badge-danger">{{dette}}</span></h2> 
+                <h2 class="text-left">Dette:<span class="badge badge-danger">{{dette}}</span></h2> 
             
               </div>
 
@@ -57,7 +57,7 @@
                 <div class="row d-flex justify-content-center">
                   <h3 class="card-text metric-text ">Nourriture:<span class="badge badge-warning">10$</span>
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="Nourriture" id="inlineRadio1" value="0">
+                    <input class="form-check-input" type="radio" name="Nourriture" id="inlineRadio1" value="0" required>
                     <label class="form-check-label" for="inlineRadio1">0</label>
                   </div>
                   <div class="form-check form-check-inline">
@@ -70,7 +70,7 @@
                 <div class="row d-flex justify-content-center">
                   <h3 class="card-text metric-text">Loyer:<span class="badge badge-warning">30$</span>
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="Loyer" id="inlineRadio1" value="0">
+                    <input class="form-check-input" type="radio" name="Loyer" id="inlineRadio1" value="0" required>
                     <label class="form-check-label" for="inlineRadio1">0</label>
                   </div>
                   <div class="form-check form-check-inline">
@@ -85,7 +85,7 @@
                 <div class="row d-flex justify-content-center">
                   <h3 class="card-text metric-text">Internet et tele:<span class="badge badge-warning">5$</span>
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="Internet" id="inlineRadio1" value="0">
+                    <input class="form-check-input" type="radio" name="Internet" id="inlineRadio1" value="0" required>
                     <label class="form-check-label" for="inlineRadio1">0</label>
                   </div>
                   <div class="form-check form-check-inline">
@@ -99,7 +99,7 @@
                 <div class="row d-flex justify-content-center">
                   <h3 class="card-text metric-text">Electricite:<span class="badge badge-warning">5$</span>
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="Electricite" id="inlineRadio1" value="0">
+                    <input class="form-check-input" type="radio" name="Electricite" id="inlineRadio1" value="0" required>
                     <label class="form-check-label" for="inlineRadio1">0</label>
                   </div>
                   <div class="form-check form-check-inline">
@@ -113,7 +113,7 @@
                 <div class="row d-flex justify-content-center">
                   <h3 class="card-text metric-text">Cinema:<span class="badge badge-warning">4$</span>
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="Cinema" id="inlineRadio1" value="0">
+                    <input class="form-check-input" type="radio" name="Cinema" id="inlineRadio1" value="0" required>
                     <label class="form-check-label" for="inlineRadio1">0</label>
                   </div>
                   <div class="form-check form-check-inline">
@@ -130,7 +130,7 @@
                 <div class="row d-flex justify-content-center">
                   <h3 class="card-text metric-text">Jeux videos:<span class="badge badge-warning">2$</span>
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="Jeux_videos" id="inlineRadio1" value="0">
+                    <input class="form-check-input" type="radio" name="Jeux_videos" id="inlineRadio1" value="0" required>
                     <label class="form-check-label" for="inlineRadio1">0</label>
                   </div>
                   <div class="form-check form-check-inline">
@@ -147,7 +147,7 @@
                 <div class="row d-flex justify-content-center">
                   <h3 class="card-text metric-text">Restaurant:<span class="badge badge-warning">9$</span>
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="Restaurant" id="inlineRadio1" value="0">
+                    <input class="form-check-input" type="radio" name="Restaurant" id="inlineRadio1" value="0" required>
                     <label class="form-check-label" for="inlineRadio1">0</label>
                   </div>
                   <div class="form-check form-check-inline">
@@ -164,7 +164,7 @@
                 <div class="row d-flex justify-content-center">
                   <h3 class="card-text metric-text">Grand prix F1:<span class="badge badge-warning">15$</span>
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="F1" id="inlineRadio1" value="0">
+                    <input class="form-check-input" type="radio" name="F1" id="inlineRadio1" value="0" required>
                     <label class="form-check-label" for="inlineRadio1">0</label>
                   </div>
                   <div class="form-check form-check-inline">
@@ -191,7 +191,7 @@
             <div class="col-sm-3">
               <div class="row d-flex justify-content-center">
                 
-                  <h2>Mois:<span class="badge badge-warning">{{mois}}</span></h2> 
+                  <h2>Mois:<span class="badge badge-warning" id= month ></span></h2> 
               </div>
             
             
@@ -220,6 +220,7 @@
 
 
     <!-- Optional JavaScript -->
+    <script type="text/javascript" src="{{ url_for('static', filename='js/month.js') }}"></script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>

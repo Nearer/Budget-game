@@ -1,4 +1,6 @@
 from pprint import pprint
+import sqlite3
+conn = sqlite3.connect('budget.db')
 # fonction utilisant comme input combien il assigne a chaque depenses
 def happyness(nourriture,loyer,internet,electricite,cinema,jeu_video,restaurant,f1,economies=0,happy=100,mois=1):
     
@@ -34,9 +36,9 @@ def happyness(nourriture,loyer,internet,electricite,cinema,jeu_video,restaurant,
     if economies < 0:
          dette=abs(economies)
          economies=0
-
+    
     # print("nourriture=",nourriture,"revenu=",revenu,"total=", total,"depenses_fun=",depense_fun,"depense_nec=", depense_nec , "economies=", economies,"happy=",happy,"mois=",mois)
-    return economies,happy,mois,dette
+    return economies,happy,dette
 
 if __name__ == "__main__":
     # execute only if run as a script

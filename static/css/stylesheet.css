@@ -7,7 +7,12 @@
     padding-top: 40px;
 }
 
+.text-left{
+    color: blanchedalmond;
+}
+
+
 body{
-    background-color:rgb(0, 255, 34);
-    
+    /*background-color: #073642;*/
+    background-image: url(/static/images/wallofrisk.jpg);
 }
