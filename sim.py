@@ -27,17 +27,25 @@ def happyness(nourriture,loyer,internet,electricite,cinema,jeu_video,restaurant,
    
     
     total= depense_fun + depense_nec
-    r_dep_fun= 25 - depense_fun + 20
-    r_dep_nec=abs(75- int(depense_nec))
+    r_dep_fun= 30 - depense_fun
+    r_dep_nec= 50 - depense_nec
     
-    happy= happy - r_dep_nec - r_dep_fun
+    
     economies= int(economies) + int(revenu) - int(total)
     dette=0
     if economies < 0:
          dette=abs(economies)
          economies=0
     
-    # print("nourriture=",nourriture,"revenu=",revenu,"total=", total,"depenses_fun=",depense_fun,"depense_nec=", depense_nec , "economies=", economies,"happy=",happy,"mois=",mois)
+    if total <= 80:    
+        happy = happy - r_dep_nec - int( r_dep_fun) + 0.1*economies
+    
+    if total > 80:
+        happy = happy - r_dep_fun - (3*dette) -20
+
+    happy =int(happy)
+    
+    print("nourriture=",nourriture,"revenu=",revenu,"total=", total,"depenses_fun=",depense_fun,"depense_nec=", depense_nec , "economies=", economies,"happy=",happy,"dette=",dette)
     return economies,happy,dette
 
 if __name__ == "__main__":
