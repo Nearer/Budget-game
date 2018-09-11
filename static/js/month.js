@@ -1,36 +1,68 @@
 
 
+
 function  noMonth(){
 
-    var count = localStorage.getItem("count")==null?0:localStorage.getItem("count");
+    count = sessionStorage.getItem("count")==null?0:sessionStorage.getItem("count");
     count=Number(count)+1;
-    localStorage.setItem("count", count);
+    sessionStorage.setItem("count", count);
     document.getElementById('month').innerHTML = count;
+}
+
+function valeur_a(){
+    if (count == 1){
+        var x_var = Math.floor(Math.random() * 6) + 1;
+        sessionStorage.setItem("x_var",x_var );
     }
+}
+
+
+// Evenements aleatoire diminuant le salaire disponible
+function random(){
+    
+    var x_var = Number(sessionStorage.getItem("x_var"));
+    if (count == 2){
+
+        // Malade 50$ neccessaire
+        $('#myModal').modal('show');
+        nonP = 50;
+    
+    }else{
+        nonP =0;
+    }
+    
+}
 
 function valeur_i() {  
 
-    if(localStorage.getItem("economies") !== null){
-     economies = Number(localStorage.getItem("economies"));
+    if(sessionStorage.getItem("economies") !== null){
+     economies = Number(sessionStorage.getItem("economies"));
     } else {
      economies = 0;
     }
 
-    if(localStorage.getItem("dette") !== null){
-     dette = Number(localStorage.getItem("dette"));
+    if(sessionStorage.getItem("dette") !== null){
+     dette = Number(sessionStorage.getItem("dette"));
     } else {
      dette = 0;
     }
 
-    if(localStorage.getItem("happy") !== null){
-     happy = Number(localStorage.getItem("happy"));
+    if(sessionStorage.getItem("happy") !== null){
+     happy = Number(sessionStorage.getItem("happy"));
     } else {
      happy = 100;
     }
 
-    document.getElementById('economies').innerHTML = economies;
-    document.getElementById('dette').innerHTML = dette;
+    if(sessionStorage.getItem("revenu") !== null){
+        revenu = Number(sessionStorage.getItem("revenu")) - nonP;
+       } else {
+        revenu = 100;
+       }
+
+    document.getElementById('economies').innerHTML = economies + '$';
+    document.getElementById('dette').innerHTML = dette + '$';
     document.getElementById('happy').innerHTML = happy + '%';
+    document.getElementById('revenu').innerHTML = revenu + '$';
 }
 
 // CODE FOR BUDGET COMPUTATION
@@ -58,7 +90,7 @@ function sim(){
 
 
 
-    var revenu = 100;
+    
 
     var depense_nec =  Nourriture + Loyer + Internet + Electricite;
 
@@ -71,6 +103,7 @@ function sim(){
     var r_dep_fun= 30 - depense_fun;
     var r_dep_nec= 50 - depense_nec;
 
+
     economies = economies + revenu - total - dette;
 
     if (economies < 0){
@@ -80,24 +113,49 @@ function sim(){
         dette = 0;
     }
 
-    if (total <= 80){
+    if (total < 80){
         if(happy == 100){    
-            happy = happy - r_dep_nec -  r_dep_fun ;
+            happy = happy - 2*r_dep_nec - r_dep_fun;
+        }else if(happy < 100 ){
+            happy = happy - 1.5*r_dep_nec -  r_dep_fun + 0.5 * economies ;
         }else{
-            happy = happy - r_dep_nec -  r_dep_fun + 0.1 * economies ;
+            happy = happy - r_dep_nec -  r_dep_fun - 0.5*dette;
+        }
+    }else if (total > 80){
+        if (happy ==100){
+            happy = happy - r_dep_fun - dette + economies;
+        }else if(happy < 100){
+            happy = happy - 0.3*(100 - happy) - 0.5*dette ;
+        }else{
+            happy = happy - (happy-100) - 20;
+        }
+    }else{
+        if(happy == 100){    
+            happy = happy - 10;
+        }else if(happy < 100 ){
+            happy = happy  + 0.5 * economies ;
+        }else{
+            if (dette > 0 ){
+                happy = happy - 0.5*dette;
+            }else{
+                happy = happy - 20;
+
+            }
         }
     }
-    if (total > 80){
-        happy = happy - r_dep_fun - 2*dette -20;
-    }
 
-    if(happy>100){happy=100;}
+    happy = Math.floor(happy);
 
-    localStorage.setItem("economies", economies);
-    localStorage.setItem("dette", dette);
-    localStorage.setItem("happy", happy);
+    revenu =100;
 
-    }
+    // if(happy>100){happy=100;}
+
+    sessionStorage.setItem("economies", economies);
+    sessionStorage.setItem("dette", dette);
+    sessionStorage.setItem("happy", happy);
+    sessionStorage.setItem("revenu", revenu);
+
+}
 
 
 
@@ -107,7 +165,11 @@ function sim(){
 window.onload = function(){
 // CALL FUNTION TO ITERATE MONTHS
 noMonth()
-//  assign localstorage value for economies, dette, happy
+// create random value
+valeur_a()
+// create random event
+random()
+//  assign sessionStorage value for economies, dette, happy
 valeur_i()
 
 }; 

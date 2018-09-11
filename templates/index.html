@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="fr">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -25,25 +25,45 @@
         <!-- rangee prenant en compte l'ensemble des elements de l'application -->
         <div class="row">
             
-          <!-- modal demandant le nom -->
+          <!-- modal ALERT MALADE  -->
             <div class="modal" tabindex="-1" role="dialog" id="myModal" >
                 <div class="modal-dialog" role="document">
                   <div class="modal-content">
                     <div class="modal-header">
-                      <h5 class="modal-title">Modal title</h5>
+                      <h5 class="modal-title">Pas de chance</h5>
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                       </button>
                     </div>
                     <div class="modal-body">
-                      <p>Modal body text goes here.</p>
+                      <h2>Malade:50$ pour une consultation médicale</h2>
                     </div>
                     <div class="modal-footer">
-                      <button type="button" class="btn btn-primary">Save changes</button>
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">ok</button>
                     </div>
                   </div>
                 </div>
               </div>
+
+              <!-- modal ALERT   -->
+            <div class="modal" tabindex="-1" role="dialog" id="myModal2" >
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Pas de chance</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <h2>Malade:50$ pour une consultation médicale</h2>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">ok</button>
+                  </div>
+                </div>
+              </div>
+            </div>
 
            
             <!-- Info a la gauche de la carte centrale:salaire et economies  -->
@@ -51,13 +71,13 @@
             <div class="col-sm-3 ">
               <div class="row d-flex justify-content-center">
                 
-                  <h2 class='text-left'>Salaire:<span class="badge badge-warning">100</span></h2> 
+                  <h2 class='text-left'>Salaire:<span class="badge badge-warning" id="revenu"></span></h2> 
               </div>
             
             
               <div class="row d-flex justify-content-center">
                 
-                    <h2 class='text-left'>Economies:<span class="badge badge-warning" id="economies"></span></h2> 
+                    <h2 class='text-left'>Économies:<span class="badge badge-warning" id="economies"></span></h2> 
                 
               </div>
 
@@ -105,7 +125,7 @@
                 </div>
                 
                 <div class="row d-flex justify-content-center">
-                  <h3 class="card-text metric-text">Internet et tele:<span class="badge badge-warning">5$</span>
+                  <h3 class="card-text metric-text">Internet:<span class="badge badge-warning">5$</span>
                   <div class="form-check form-check-inline">
                     <input class="form-check-input" type="radio" name="Internet" id="inlineRadio1" value="0" required>
                     <label class="form-check-label" for="inlineRadio1">0</label>
@@ -119,7 +139,7 @@
                 </div>
                 
                 <div class="row d-flex justify-content-center">
-                  <h3 class="card-text metric-text">Electricite:<span class="badge badge-warning">5$</span>
+                  <h3 class="card-text metric-text">Électricité:<span class="badge badge-warning">5$</span>
                   <div class="form-check form-check-inline">
                     <input class="form-check-input" type="radio" name="Electricite" id="inlineRadio1" value="0" required>
                     <label class="form-check-label" for="inlineRadio1">0</label>
@@ -133,7 +153,7 @@
                 </div>
 
                 <div class="row d-flex justify-content-center">
-                  <h3 class="card-text metric-text">Cinema:<span class="badge badge-warning">4$</span>
+                  <h3 class="card-text metric-text">Cinéma:<span class="badge badge-warning">4$</span>
                   <div class="form-check form-check-inline">
                     <input class="form-check-input" type="radio" name="Cinema" id="inlineRadio1" value="0" required>
                     <label class="form-check-label" for="inlineRadio1">0</label>
@@ -150,7 +170,7 @@
                 </div>
 
                 <div class="row d-flex justify-content-center">
-                  <h3 class="card-text metric-text">Jeux videos:<span class="badge badge-warning">2$</span>
+                  <h3 class="card-text metric-text">Jeu vidéo:<span class="badge badge-warning">2$</span>
                   <div class="form-check form-check-inline">
                     <input class="form-check-input" type="radio" name="Jeux_videos" id="inlineRadio1" value="0" required>
                     <label class="form-check-label" for="inlineRadio1">0</label>
@@ -219,7 +239,7 @@
             
               <div class="row d-flex justify-content-center">
                 
-                    <h2>Bonheur:<span class="badge badge-warning" id="happy" >%</span></h2> 
+                    <h2>Bonheur:<span class="badge badge-warning" id="happy" ></span></h2> 
                 
               </div>
 
