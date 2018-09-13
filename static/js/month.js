@@ -21,16 +21,22 @@ function valeur_a(){
 function random(){
     
     var x_var = Number(sessionStorage.getItem("x_var"));
-    if (count == 2){
-
-        // Malade 50$ neccessaire
-        $('#myModal').modal('show');
-        nonP = 50;
-    
+    if (count == x_var){
+        var y_var = Math.floor(Math.random() * 5) + 1;
+        if (y_var > 3){
+            // Malade 50$ neccessaire
+            $('#myModal').modal('show');
+            nonP = 50;
+        
+        }else if(y_var < 3){
+            $('#myModal2').modal('show');    
+            nonP = -50;
+        }else{
+            nonP=0;
+        }
     }else{
-        nonP =0;
+        nonP=0;
     }
-    
 }
 
 function valeur_i() {  
@@ -82,7 +88,7 @@ function sim(){
     Nourriture*=10;
     Loyer*=30;
     Internet*=5;
-    Electricite*=5
+    Electricite*=5;
     Cinema*=4;
     Jeux_videos*=2;
     Restaurant*=9;
@@ -115,7 +121,7 @@ function sim(){
 
     if (total < 80){
         if(happy == 100){    
-            happy = happy - 2*r_dep_nec - r_dep_fun;
+            happy = happy - 2*r_dep_nec - r_dep_fun + 0.3*economies;
         }else if(happy < 100 ){
             happy = happy - 1.5*r_dep_nec -  r_dep_fun + 0.5 * economies ;
         }else{
@@ -125,27 +131,27 @@ function sim(){
         if (happy ==100){
             happy = happy - r_dep_fun - dette + economies;
         }else if(happy < 100){
-            happy = happy - 0.3*(100 - happy) - 0.5*dette ;
+            happy = happy - 0.3*(100 - happy) - 0.5*dette + 0.3 * economies;
         }else{
-            happy = happy - (happy-100) - 20;
+            happy = happy - (happy-100) - 20 + 0.3*economies;
         }
     }else{
         if(happy == 100){    
-            happy = happy - 10;
+            happy = happy - 10 +0.1*economies;
         }else if(happy < 100 ){
             happy = happy  + 0.5 * economies ;
         }else{
             if (dette > 0 ){
                 happy = happy - 0.5*dette;
             }else{
-                happy = happy - 20;
+                happy = happy - 20 +0.5*economies;
 
             }
         }
     }
 
     happy = Math.floor(happy);
-
+    if(happy<0){happy=0};
     revenu =100;
 
     // if(happy>100){happy=100;}
