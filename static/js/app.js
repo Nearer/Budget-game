@@ -19,7 +19,7 @@ function valeur_a(){
 
 // Reset radio selectors
 // function clearAllRadios() {
-//     var radList = (document.querySelector('input[type="radio"]:checked'));
+//     var radList = (document.querySelector('input[type="radio"]'));
 //     radList.value=false
 // }
 
@@ -84,6 +84,17 @@ function valeur_i() {
     document.getElementById('revenu').innerHTML = revenu + '$';
 }
 
+// Clear radio buttons
+function clearRadioButtons(name){
+ var radioButtonArray = document.getElementsByName(name);
+
+ for (var i=0; i<radioButtonArray.length; i++){
+  var radioButton = radioButtonArray[i];
+  radioButton.checked = false;
+ }
+}
+
+
 
 // Event Listeners
 document.getElementById('budget-form').addEventListener('submit',
@@ -107,7 +118,7 @@ document.getElementById('budget-form').addEventListener('submit',
         Jeux_videos*=2;
         Restaurant*=9;
         F1*=15;
-
+        // Sum values according to their type
         var depense_nec =  Nourriture + Loyer + Internet + Electricite;
         var depense_fun= Cinema + Jeux_videos + Restaurant + F1;
         var total = depense_fun + depense_nec;
@@ -181,6 +192,11 @@ document.getElementById('budget-form').addEventListener('submit',
         valeur_i();
 
         // clearAllRadios();
+        var Depenses = ['Nourriture','Loyer','Internet','Electricite','Cinema','Jeux_videos','Restaurant','F1'];
+        
+        Depenses.forEach(depense => {
+            clearRadioButtons(depense);
+        });
         
 
 
