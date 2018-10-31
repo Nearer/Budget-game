@@ -3,7 +3,7 @@
 // keep track of current month
 function  noMonth(){
 
-    count = sessionStorage.getItem("count")==null?0:sessionStorage.getItem("count");
+    let count = sessionStorage.getItem("count")==null?0:sessionStorage.getItem("count");
     count=Number(count)+1;
     sessionStorage.setItem("count", count);
     document.getElementById('month').innerHTML = count;
@@ -11,44 +11,63 @@ function  noMonth(){
 
 // create random event
 function valeur_a(){
-    if (count == 1){
-        var x_var = Math.floor(Math.random() * 6) + 1;
-        sessionStorage.setItem("x_var",x_var );
+    let count = parseInt(sessionStorage.getItem("count")==null?0:sessionStorage.getItem("count"),10);
+    if (count === 1){
+    var x_var = Math.floor(Math.random() * 6) + 1;
+    sessionStorage.setItem("x_var",x_var );
     }
 }
 
-// Reset radio selectors
-// function clearAllRadios() {
-//     var radList = (document.querySelector('input[type="radio"]'));
-//     radList.value=false
-// }
+
 
 
 
 
 // Evenements aleatoire modifiant le salaire disponible
-// var nonP =function(){
-//     // get random value
-//     var x_var = Number(sessionStorage.getItem("x_var"));
-//     if (count === x_var){
-//         var y_var = Math.floor(Math.random() * 5) + 1;
-//         if (y_var > 3){
-//             // Malade 50$ neccessaire
-//             $('#myModal').modal('show');
-//             return int(50);
+function e_salary(){
+    // get random value
+    var x_var = parseInt(sessionStorage.getItem("x_var"),10);
+    var count = parseInt(sessionStorage.getItem("count")==null?0:sessionStorage.getItem("count"),10);
+    if (count === x_var){
+        var y_var = Math.floor(Math.random() * 5) + 1;
+        if (y_var > 3){
+            // Malade 50$ neccessaire
+            return   50;
         
-//         }else if(y_var < 3){
-//             $('#myModal2').modal('show');    
-//             return int(-50);
-//         }else{
-//             return int(0);
-//         }
-//     }else{
-//         return int (0);
-//     }
-// };
+        }else if(y_var < 3){
+ 
+            return   -50;
+        }else{
+            return   0;
+        }
+    }else{
+        return 0;
+    }
+};
 
-
+// Evenements aleatoire affichant le modal
+function showModals(){
+    // get random value
+    var x_var = parseInt(sessionStorage.getItem("x_var"),10);
+    var count = parseInt(sessionStorage.getItem("count")==null?0:sessionStorage.getItem("count"),10);
+    if (count === x_var){
+        var y_var = Math.floor(Math.random() * 5) + 1;
+        if (y_var > 3){
+            // Malade 50$ neccessaire
+            $('#myModal').modal('show');
+            sessionStorage.setItem("revenu", revenu - 50);
+        
+        }else if(y_var < 3){
+            $('#myModal2').modal('show');
+            sessionStorage.setItem("revenu", revenu + 50);    
+        
+        }else{
+           
+        }
+    }else{
+       
+    }
+};
 
 
 // assign sessionStorage value for economies, dette, happy
@@ -109,6 +128,9 @@ document.getElementById('budget-form').addEventListener('submit',
         var Restaurant = Number(document.querySelector('input[name="Restaurant"]:checked').value);
         var F1 = Number( document.querySelector('input[name="F1"]:checked').value); 
         
+        //Get random month value for random event
+       
+
         // Compute cost of each item
         Nourriture*=10;
         Loyer*=30;
@@ -126,7 +148,7 @@ document.getElementById('budget-form').addEventListener('submit',
         var r_dep_nec= 50 - depense_nec;
 
 
-        economies = economies + revenu - total - dette;
+        economies = economies + revenu - total - dette ;
 
         if (economies < 0){
             dette=Math.abs(economies);
@@ -189,7 +211,7 @@ document.getElementById('budget-form').addEventListener('submit',
         // create random event
         // random();
         // assign sessionStorage value for economies, dette, happy
-        valeur_i();
+        // valeur_i();
 
         // clearAllRadios();
         var Depenses = ['Nourriture','Loyer','Internet','Electricite','Cinema','Jeux_videos','Restaurant','F1'];
@@ -197,8 +219,10 @@ document.getElementById('budget-form').addEventListener('submit',
         Depenses.forEach(depense => {
             clearRadioButtons(depense);
         });
-        
 
+        showModals();
+        
+        valeur_i();
 
         e.preventDefault();
     });
@@ -208,8 +232,10 @@ document.getElementById('budget-form').addEventListener('submit',
 window.onload=(function(event){
     // assign sessionStorage value for economies, dette, happy    
     valeur_i();
-
+    // initialize month
     noMonth();
+    // initialize random event 
+    valeur_a();
 
 
 });
