@@ -115,6 +115,7 @@ function clearRadioButtons(name){
 
 
 
+
 // Event Listeners
 document.getElementById('budget-form').addEventListener('submit',
     function(e){
@@ -226,6 +227,52 @@ document.getElementById('budget-form').addEventListener('submit',
 
         e.preventDefault();
     });
+
+
+
+document.querySelector('#calculatorButton').addEventListener('click',
+function(e){
+
+
+    
+    
+    // Get form values
+    var Nourriture = Number(document.querySelector('input[name="Nourriture"]:checked').value);
+    var Loyer = Number(document.querySelector('input[name="Loyer"]:checked').value);
+    var Internet = Number(document.querySelector('input[name="Internet"]:checked').value);
+    var Electricite =Number(document.querySelector('input[name="Electricite"]:checked').value);
+    var Cinema = Number(document.querySelector('input[name="Cinema"]:checked').value);
+    var Jeux_videos = Number( document.querySelector('input[name="Jeux_videos"]:checked').value);
+    var Restaurant = Number(document.querySelector('input[name="Restaurant"]:checked').value);
+    var F1 = Number( document.querySelector('input[name="F1"]:checked').value); 
+
+    // Compute cost of each item
+    Nourriture*=10;
+    Loyer*=30;
+    Internet*=5;
+    Electricite*=5;
+    Cinema*=4;
+    Jeux_videos*=2;
+    Restaurant*=9;
+    F1*=15;
+    // Sum values according to their type
+    var depense_nec =  Nourriture + Loyer + Internet + Electricite;
+    var depense_fun= Cinema + Jeux_videos + Restaurant + F1;
+    var total = depense_fun + depense_nec;
+
+    document.getElementById('total').innerHTML = total + '$';
+
+    
+});
+
+// compute expenses each time mouse clicked on form
+// document.querySelector('#budget-form').addEventListener('click',
+// function(e){
+
+
+//     console.log('hello');
+// });
+
 
 
 // Page firt load
