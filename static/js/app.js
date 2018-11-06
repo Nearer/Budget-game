@@ -13,7 +13,7 @@ function  noMonth(){
 function valeur_a(){
     let count = parseInt(sessionStorage.getItem("count")==null?0:sessionStorage.getItem("count"),10);
     if (count === 1){
-    var x_var = Math.floor(Math.random() * 6) + 1;
+    var x_var = Math.floor(Math.random() * 4) + 2;
     sessionStorage.setItem("x_var",x_var );
     }
 }
@@ -148,6 +148,7 @@ document.getElementById('budget-form').addEventListener('submit',
         var r_dep_fun= 30 - depense_fun;
         var r_dep_nec= 50 - depense_nec;
 
+        var count = Number(sessionStorage.getItem("count")==null?0:sessionStorage.getItem("count"));
 
         economies = economies + revenu - total - dette ;
 
@@ -157,42 +158,39 @@ document.getElementById('budget-form').addEventListener('submit',
         } else {
             dette = 0;
         }
-
+        // happy = happy - 2*r_dep_nec - r_dep_fun + economies - 20 * count;
         if (total < 80){
             if(happy == 100){    
-                happy = happy - 2*r_dep_nec - r_dep_fun + 0.3*economies;
+                happy = happy - 2*r_dep_nec - r_dep_fun + economies - 20 * count;
             }else if(happy < 100 ){
-                happy = happy - 1.5*r_dep_nec -  r_dep_fun + 0.5 * economies ;
+                happy = happy  - 1.5*r_dep_nec -  r_dep_fun +  economies ;
             }else{
-                happy = happy - r_dep_nec -  r_dep_fun - 0.5*dette;
+                happy = happy - r_dep_nec -  r_dep_fun - 0.5*dette +economies- 20 * count;
             }
         }else if (total > 80){
             if (happy ==100){
-                happy = happy - r_dep_fun - dette + economies;
+                happy = happy - r_dep_fun - dette + economies - 20 * count;
             }else if(happy < 100){
-                happy = happy - 0.3*(100 - happy) - 0.5*dette + 0.3 * economies;
+                happy = happy - 2* r_dep_fun + economies ;
             }else{
-                happy = happy - (happy-100) - 20 + 0.3*economies;
+                happy = happy - 20 + 0.3* economies - 20 * count;
             }
         }else{
-            if(happy == 100){    
-                happy = happy - 10 +0.1*economies;
+            if(happy >= 100){    
+                happy = happy - 20  + 0.5* economies - 20 * count;
             }else if(happy < 100 ){
-                happy = happy  + 0.5 * economies ;
-            }else{
-                if (dette > 0 ){
-                    happy = happy - 0.5*dette;
-                }else{
-                    happy = happy - 20 +0.5*economies;
-
-                }
+                happy = happy  + economies - 10 * count;
             }
            
         }
 
         // if(happy>100){happy=100;}
         happy = Math.floor(happy);
-        if(happy<0){happy=0};
+        if(happy<0){
+            happy=0;
+        }else if(happy>120){
+            happy =120;
+        }
         
         revenu =100;
 
@@ -229,7 +227,7 @@ document.getElementById('budget-form').addEventListener('submit',
     });
 
 
-
+// expense calculator
 document.querySelector('#calculatorButton').addEventListener('click',
 function(e){
 
